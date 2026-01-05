@@ -227,7 +227,8 @@ def create_access_token(data: dict, expires_delta: Optional[timedelta] = None) -
     return encoded_jwt
 
 
-async def get_current_user(token: str = Depends(oauth2_scheme)) -> UserInDB:
+async def get_current_user(token: str = Depends(oauth2_scheme)) -> UserInDB:     # this is the dependency injection and in fastapi it means that before running this function run the other function and give me its result
+    
     """
     Extract and validate user from JWT token
     This is a DEPENDENCY FUNCTION used in protected endpoints

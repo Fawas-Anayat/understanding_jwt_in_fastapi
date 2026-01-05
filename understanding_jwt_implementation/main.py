@@ -113,7 +113,8 @@ async def register(user: UserCreate):
 
 
 @app.post("/token", response_model=Token)
-async def login(form_data: OAuth2PasswordRequestForm = Depends()):
+async def login(form_data: OAuth2PasswordRequestForm = Depends()):     #makes the coming data in some specific json format, otherwise the incoming data that is incmoing with the request is not in the valid format and its difficult to extract the username and the password from it 
+    
     """
     Login endpoint - exchanges username/password for JWT token
     
